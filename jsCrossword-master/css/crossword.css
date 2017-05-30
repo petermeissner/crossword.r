@@ -1,0 +1,191 @@
+body {
+	font: 62.5%/1.3em Helvetica, sans-serif;
+	width: 90.3%;
+	margin: 10px auto;
+	background-color: #d2d2d2;
+}
+.crossword-container{
+	background-color: rgba(255 , 255, 255, 0.95);
+	max-width:960px;
+	margin: auto;
+	border: 3 px solid #eee;
+	border-radius: 5px;
+	padding: 10px
+
+}
+.crossword-container input:focus{
+	background-color: rgba(255 , 255, 255, 0.95) !important;
+	border: 1px solid #aaa;
+	 -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out;
+	 -webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	transform: scale(1.25);
+	z-index: 9999999;
+
+	}
+#puzzle-wrapper a { text-decoration:none }
+#puzzle-wrapper a:hover,#puzzle-wrapper a:active { text-decoration:underline }
+table.crossword {
+	background: #333;
+}
+table.crossword td {
+	background: inherit;
+}
+
+table.crossword {
+	width: 100%;
+	border: 1px solid #cdcdcd;
+	border-spacing: 0;
+	max-width: 100%;
+	border-collapse: collapse;
+}
+table.crossword tr{
+	width: 100%;
+}
+table.crossword td {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #cdcdcd;
+	background-color: #333;
+	vertical-align: top;
+}
+table.crossword td div{
+	position:relative;
+}
+
+table.crossword td.light{
+	background: #f4f4f4
+}
+
+table.crossword td input {
+	padding: 0em;
+	border: transparent;
+	text-align: center;
+	font-size: 2em;
+	color: #666;
+	background:transparent;
+	background-color: #f4f4f4;
+	text-transform: uppercase;
+	font-weight:bold;
+	position:absolute;
+	width:100%;
+	height:10px;
+
+	*left:-2px;
+	*top:-2px;
+}
+
+table.crossword td input:focus {
+	background-color: #fff;
+}
+
+table.crossword td span {
+	color: #444;
+	font-size: 0.8em;
+	position: absolute;
+	top: -1px;
+	left: 1px;
+}
+
+table.crossword input.done {
+	font-weight: bold;
+	color: green;
+}
+
+#puzzle-wrapper .active,
+#puzzle-clues .clues-active {
+	background-color: #ddd;
+}
+#puzzle-clues .clue-done {
+	color: #999;
+	text-decoration: line-through;
+}
+
+#puzzle-wrapper {
+	float: left;
+	width: 50%;
+	margin-right: 3%;
+
+}
+#puzzle-clues {
+	float: left;
+	width: 44%;
+}
+
+#puzzle-clues li{
+                        list-style: none;
+	font-size: 1.2em;
+	margin: .3em;
+	line-height: 1.6em;
+	cursor:pointer;
+}
+
+#puzzle-clues ul{
+	padding:0;
+}
+#puzzle-clues li{
+	list-style:none;
+	padding-left:2em;
+	clear:both;
+}
+#puzzle-clues li .position{
+	position:absolute;
+	margin-left:-2em;
+	font-weight:bold;
+}
+#puzzle-clues li .position:after{
+	content:".";
+}
+
+@media (max-width:700px){
+	#puzzle-wrapper,
+	#puzzle-clues {
+		float: none;
+		width: auto;
+		margin-right: 0;
+	}
+	#puzzle-wrapper{
+		margin:0 30px;
+	}
+	#puzzle-clues div{
+		padding:0;
+		float:left;
+		width:40%;
+		margin-left:5%;
+	}
+}
+@media (max-width:480px){
+	#puzzle-clues div{
+		float:none;
+		width:auto;
+	}
+	#puzzle-wrapper{
+		margin:0;
+	}
+}
+
+#puzzle-clues .words{
+	font-size:.9em;
+	color:#888;
+	float:right;
+	margin-left:.5em;
+}
+
+.btn.reveal {
+	cursor: pointer;
+	font-size: 1.3em;
+	text-decoration: underline;
+}
+
+.btn.reset {
+	cursor: pointer;
+	font-size: 1.3em;
+	text-decoration: underline;
+	color: red;
+	float: right;
+}
+
+.message {
+	font-size: 1.25em;
+}
