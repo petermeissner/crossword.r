@@ -62,8 +62,11 @@ NULL
 #' @export
 cw_grid <-
   R6::R6Class(
+
   classname = "cw_grid",
+
   public =
+
     list(
       # data fields
       rows         = NULL,
@@ -87,6 +90,9 @@ cw_grid <-
           self$columns <- columns
 
           # ?
+          self$rows    <- rows
+          self$columns <- columns
+
           tmp <-
             data.frame(
               row              = rep(seq_len(rows), columns),
@@ -121,6 +127,7 @@ cw_grid <-
 
           self$grid_data <- tmp
         },
+
 
       # put word on grid
       put_word_on_grid = function(word, row = 1, column = 1, horizontal = TRUE){

@@ -22,7 +22,6 @@ cw_r6_extended <-
     "cw_r6_extended",
 
 
-
     #### private ===============================================================
     private = list(
       hashes = list(),
