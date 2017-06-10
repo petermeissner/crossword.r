@@ -2,13 +2,10 @@
 
 export(crossword)
 export(cw_grid)
-<<<<<<< HEAD
 export(cw_r6_extended)
 export(cw_widget)
 export(cw_widgetOutput)
 export(matrix_to_df)
 export(renderCw_widget)
 import(htmlwidgets)
-=======
->>>>>>> 08dffeb434cb10241ffe5d24983186a396ac9487
 importFrom(R6,R6Class)

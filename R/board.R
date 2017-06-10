@@ -272,7 +272,12 @@ cw_grid <-
 
           # return for piping
           return(self)
-        }
+        },
+
+      print = function(){
+        apply(self$letters, 1, function(x){cat(x); cat("\n")})
+        invisible(self)
+      }
 
     ),
   private      = NULL,
