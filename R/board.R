@@ -130,68 +130,80 @@ cw_grid <-
 
 
       # put word on grid
-      put_word_on_grid = function(word, row = 1, column = 1, horizontal = TRUE){
-        if(horizontal){
+      put_word_on_grid =
+        function(
+          word,
+          row       = 1,
+          column    = 1,
+          direction = c("down", "right")
+        ){
+          cat(word, row, column, direction, "\n\n", sep=" / ")
+        if( direction == "right"){
           stopifnot( nchar(word) <= (self$columns - column + 1))
           self$letters[row, column:(column+nchar(word)-1)] <- unlist(strsplit(word, ""))
-        }else{
+        }else if ( direction == "down" ){
           stopifnot( nchar(word) <= (self$rows - row + 1))
           self$letters[row:(row+nchar(word)-1), column] <- unlist(strsplit(word, ""))
+        }else{
+          stop("direction neither 'down' nor 'right'")
         }
+
+        # return
+        return(self)
       },
 
       # update restrictions
       update_grid_data =
-      function(){
+        function(){
 
-        # make restrictions
-        self$restrictions_right <- matrix("", nrow = self$rows, ncol = self$columns)
-        self$restrictions_down  <- matrix("", nrow = self$rows, ncol = self$columns)
+          # make restrictions
+          self$restrictions_right <- matrix("", nrow = self$rows, ncol = self$columns)
+          self$restrictions_down  <- matrix("", nrow = self$rows, ncol = self$columns)
 
-        # fill restrictions with letters
-        for(rowi in seq_len(self$rows)){
-          for(coli in seq_len(self$columns)){
+          # fill restrictions with letters
+          for(rowi in seq_len(self$rows)){
+            for(coli in seq_len(self$columns)){
 
-            self$restrictions_right[rowi, coli] <-
-              paste(self$letters[rowi, coli:self$columns], collapse = "")
+              self$restrictions_right[rowi, coli] <-
+                paste(self$letters[rowi, coli:self$columns], collapse = "")
 
-            self$restrictions_down[rowi, coli]  <-
-              paste(self$letters[rowi:self$rows, coli], collapse = "")
+              self$restrictions_down[rowi, coli]  <-
+                paste(self$letters[rowi:self$rows, coli], collapse = "")
 
+            }
           }
-        }
 
-        # turn into data.frame
-        self$restrictions_right <-
-          matrix_to_df(self$restrictions_right)
+          # turn into data.frame
+          self$restrictions_right <-
+            matrix_to_df(self$restrictions_right)
 
-        self$restrictions_down  <-
-          matrix_to_df(self$restrictions_down)
+          self$restrictions_down  <-
+            matrix_to_df(self$restrictions_down)
 
-        # add length
-        self$restrictions_right$nchar <-
-          nchar(self$restrictions_right$val)
+          # add length
+          self$restrictions_right$nchar <-
+            nchar(self$restrictions_right$val)
 
-        self$restrictions_down$nchar <-
-          nchar(self$restrictions_down$val)
+          self$restrictions_down$nchar <-
+            nchar(self$restrictions_down$val)
 
-        # sort out word starts
-        self$restrictions_down <-
-          dplyr::anti_join(
-            self$restrictions_down,
-            self$words %>% dplyr::filter(direction=="down"),
-            by = c("row", "col")
-          )
+          # sort out word starts
+          self$restrictions_down <-
+            dplyr::anti_join(
+              self$restrictions_down,
+              self$words %>% dplyr::filter(direction=="down"),
+              by = c("row", "col")
+            )
 
-        self$restrictions_right <-
-          dplyr::anti_join(
-            self$restrictions_right,
-            self$words %>% dplyr::filter(direction=="right"),
-            by = c("row", "col")
-          )
+          self$restrictions_right <-
+            dplyr::anti_join(
+              self$restrictions_right,
+              self$words %>% dplyr::filter(direction=="right"),
+              by = c("row", "col")
+            )
 
-        # return
-        return(self)
+          # return
+          return(self)
       },
 
 
@@ -215,36 +227,39 @@ cw_grid <-
           # update restrictions
           self$update_grid_data()
 
-          browser()
-
 
           # available places down
           down <-
             self$restrictions_down %>%
-            dplyr::filter(nchar(val) >= nchar(word)) %>%
+            dplyr::filter(
+              greplv(val, word),
+              nchar(val) >= nchar(word)
+            ) %>%
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
               direction = "down",
               clue      = "",
               word      = word,
-              weight    = 1/nchar(val)
+              weight    = 1/nchar(val),
+              val       = substring(val, 1, nchar(word))
             )
+
 
           # available places right
           right <-
             self$restrictions_right %>%
-            dplyr::filter(nchar(val) >= nchar(word)) %>%
+            dplyr::filter(
+              greplv(val, word),
+              nchar(val) >= nchar(word)
+            ) %>%
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
               direction = "down",
               clue      = "",
               word      = word,
-              weight    = 1/nchar(val)
+              weight    = 1/nchar(val),
+              val       = substring(val, 1, nchar(word))
             )
-
-          #### dev! ###
-          # word should fit pattern also
-
 
           # add word selection to words
           new_word <-
@@ -259,15 +274,10 @@ cw_grid <-
 
           # add word to grid
           self$put_word_on_grid(
-            word   = new_word$word,
-            row    = new_word$row,
-            column = new_word$col,
-            horizontal =
-              if( new_word$direction == "right" ){
-                TRUE
-              }else{
-                FALSE
-              }
+            word      = new_word$word,
+            row       = new_word$row,
+            column    = new_word$col,
+            direction = new_word$direction
           )
 
           # return for piping

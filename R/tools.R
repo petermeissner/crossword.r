@@ -12,3 +12,10 @@ matrix_to_df <- function(x){
     stringsAsFactors = FALSE
   )
 }
+
+#' a vectorized version of grep
+#' @export
+greplv <-
+  compiler::cmpfun(
+    Vectorize(grepl, vectorize.args = "pattern")
+  )
