@@ -211,9 +211,7 @@ cw_grid <-
       add_word =
         function(
           word,
-          row       = NULL,
-          column    = NULL,
-          direction = c("right", "down")
+          clue
         ){
           # check if it fits at all
           word <- word[nchar(word) <= self$columns & nchar(word) <= self$rows]
@@ -227,46 +225,60 @@ cw_grid <-
           # update restrictions
           self$update_grid_data()
 
+
           # available places down
+          iffer <-
+            greplv(substring(self$restrictions_down$val, 1, nchar(word)), word) &
+            nchar(self$restrictions_down$val) >= nchar(word)
+
           down <-
             self$restrictions_down %>%
             dplyr::filter(
-              greplv(val, word),
-              nchar(val) >= nchar(word)
+              iffer
             ) %>%
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
               direction = "down",
-              clue      = "",
+              clue      = clue,
               word      = word,
-              weight    = (str_count(val, "\\w") + 1 ) / nchar(val),
               val       = substring(val, 1, nchar(word))
             )
 
 
           # available places right
+          iffer <-
+            greplv(substring(self$restrictions_right$val, 1, nchar(word)), word) &
+            nchar(self$restrictions_right$val) >= nchar(word)
+
           right <-
             self$restrictions_right %>%
             dplyr::filter(
-              greplv(val, word),
-              nchar(val) >= nchar(word)
+              iffer
             ) %>%
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
               direction = "right",
               clue      = "",
               word      = word,
-              weight    = (str_count(val, "\\w") + 1) / nchar(val),
               val       = substring(val, 1, nchar(word))
             )
 
 
-          if ( nrow(right) + nrow(down) > 0 ) {
+          if ( (nrow(right) + nrow(down)) > 0 ) {
             # select one of the possible places
+
+            tmp <-
+              rbind(right, down)
+            tmp$weight <-
+              (str_count(tmp$val, "\\w") + 1) / (tmp$length + 1) +
+              1 - (tmp$row / self$rows)
+              1 - (tmp$col / self$columns)
+
             new_word <-
-              rbind(right, down) %>%
-              sample_n(1, weight = weight) %>%
-              select(-val, -weight)
+              tmp %>%
+              dplyr::filter(weight == max(weight)) %>%
+              dplyr::slice(1) %>%
+              dplyr::select(-val, -weight)
 
             # add word selection to words
             self$words <-
@@ -289,6 +301,15 @@ cw_grid <-
           # return for piping
           return(self)
         },
+
+      add_words = function(words, clues){
+        for ( i in seq_along(words) ) {
+          self$add_word(
+            word = words[i],
+            clue = clues[i]
+          )
+        }
+      },
 
       print = function(){
         apply(self$letters, 1, function(x){cat(x); cat("\n")})
