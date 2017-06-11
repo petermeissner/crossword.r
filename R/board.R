@@ -227,7 +227,6 @@ cw_grid <-
           # update restrictions
           self$update_grid_data()
 
-
           # available places down
           down <-
             self$restrictions_down %>%
@@ -240,7 +239,7 @@ cw_grid <-
               direction = "down",
               clue      = "",
               word      = word,
-              weight    = 1/nchar(val),
+              weight    = (str_count(val, "\\w") + 1 ) / nchar(val),
               val       = substring(val, 1, nchar(word))
             )
 
@@ -254,31 +253,38 @@ cw_grid <-
             ) %>%
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
-              direction = "down",
+              direction = "right",
               clue      = "",
               word      = word,
-              weight    = 1/nchar(val),
+              weight    = (str_count(val, "\\w") + 1) / nchar(val),
               val       = substring(val, 1, nchar(word))
             )
 
-          # add word selection to words
-          new_word <-
-            rbind(right, down) %>%
-            sample_n(1, weight = weight) %>%
-            select(-val, -weight)
-          self$words <-
-            rbind(
-              self$words,
-              new_word
-            )
 
-          # add word to grid
-          self$put_word_on_grid(
-            word      = new_word$word,
-            row       = new_word$row,
-            column    = new_word$col,
-            direction = new_word$direction
-          )
+          if ( nrow(right) + nrow(down) > 0 ) {
+            # select one of the possible places
+            new_word <-
+              rbind(right, down) %>%
+              sample_n(1, weight = weight) %>%
+              select(-val, -weight)
+
+            # add word selection to words
+            self$words <-
+              rbind(
+                self$words,
+                new_word
+              )
+
+            # add word to grid
+            self$put_word_on_grid(
+              word      = new_word$word,
+              row       = new_word$row,
+              column    = new_word$col,
+              direction = new_word$direction
+            )
+          }else{
+            self$message("Could not place on grid - nothing that suffices restrictions")
+          }
 
           # return for piping
           return(self)
