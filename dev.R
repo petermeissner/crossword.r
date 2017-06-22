@@ -24,7 +24,8 @@ lc_crossword <- lc_crossword[sample(seq_len(nrow(lc_crossword))),]
 grd <- cw_grid$new(30, 30)
 grd$add_words(lc_crossword$Wort[1:3], lc_crossword$Hinweis[1:3])
 grd$words
-
+grd$density()
+grd
 
 df <- as.data.frame(grd$letters)
 gs_add_row(gs_crossword, ws=2)
