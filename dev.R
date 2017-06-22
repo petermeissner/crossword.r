@@ -12,7 +12,7 @@ gs_crossword <- gs_title("kreuzworträtsel")
 lc_crossword <- gs_read_csv(gs_crossword)[, c("Wort", "Hinweis")]
 
 lc_crossword$Wort <- toupper(lc_crossword$Wort)
-lc_crossword$Wort <- paste0("_", lc_crossword$Wort, "_")
+lc_crossword$Wort <- paste0("#", lc_crossword$Wort, "#")
 lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, " +", "")
 lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "Ä", "AE")
 lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "Ö", "OE")

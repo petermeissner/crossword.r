@@ -227,7 +227,6 @@ cw_grid <-
           # update restrictions
           self$update_grid_data()
 
-
           # available places down
           iffer <-
             greplv(substring(self$restrictions_down$val, 1, nchar(word)), word) &
@@ -269,12 +268,33 @@ cw_grid <-
           if ( (nrow(right) + nrow(down)) > 0 ) {
             # select one of the possible places
 
-            tmp <-
-              rbind(right, down)
+            words_right <- length(self$words$direction == "right")
+            words_down  <- length(self$words$direction == "down")
+
+            # all possibilities
+            tmp <- rbind(right, down)
+
+            # basic weight
+            tmp$weight <- 1
+
+            # balancing right and down
+            tmp$weight[tmp$direction=="right"] <-
+              tmp$weight[tmp$direction=="right"] +
+              max(words_down - words_right, 0)
+
+            # balancing right and down
+            tmp$weight[tmp$direction=="down"] <-
+              tmp$weight[tmp$direction=="down"] +
+              max(words_right - words_down, 0)
+
+            # number of letters also occupying
             tmp$weight <-
-              (str_count(tmp$val, "\\w") + 1) / (tmp$length + 1) +
-              1 - (tmp$row / self$rows)
-              1 - (tmp$col / self$columns)
+              tmp$weight +
+              str_count(tmp$val, pattern = "[[:alpha:]]")
+
+            # distance to middle
+            tmp$weight <- tmp$weight + (self$rows/2 - abs(self$rows/2 - 1:30)) / (self$rows/4)
+
 
             new_word <-
               tmp %>%
