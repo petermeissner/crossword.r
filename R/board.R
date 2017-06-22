@@ -213,6 +213,8 @@ cw_grid <-
           word,
           clue
         ){
+          word <- toupper(word)
+
           # check if it fits at all
           word <- word[nchar(word) <= self$columns & nchar(word) <= self$rows]
 
@@ -277,6 +279,10 @@ cw_grid <-
             new_word <-
               tmp %>%
               dplyr::filter(weight == max(weight)) %>%
+              dplyr::mutate(
+                word   = stringr::str_replace_all(word, "([^[:alpha:]])", ""),
+                length = nchar(word)
+              ) %>%
               dplyr::slice(1) %>%
               dplyr::select(-val, -weight)
 
@@ -314,6 +320,20 @@ cw_grid <-
       print = function(){
         apply(self$letters, 1, function(x){cat(x); cat("\n")})
         invisible(self)
+      },
+
+      density = function(){
+        word_character <- sum(self$words$length)
+        grid_width     <- max(self$words$col) - min(self$words$col) + 1
+        grid_height    <- max(self$words$row) - min(self$words$row) + 1
+        grid_letters   <- str_count(paste(self$letters, collapse = ""), "[[:alpha:]]")
+
+        list(
+          word_character = word_character,
+          grid_width     = grid_width,
+          grid_height    = grid_height,
+          grid_letters   = grid_letters
+        )
       }
 
     ),
