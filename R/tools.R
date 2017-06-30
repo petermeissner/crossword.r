@@ -19,3 +19,35 @@ greplv <-
   compiler::cmpfun(
     Vectorize(grepl, vectorize.args = "pattern")
   )
+
+#' normalize words to be added to grid
+#'
+#' @param words character vector of words to normalize for crossword usage
+#'
+#' @export
+#'
+normalize_words <- function(words){
+
+  # check for non
+  iffer <- str_detect(words, "\\W")
+  if ( sum(iffer) > 0 ){
+    warning(
+      "There are words containing non-letters: ",
+      paste(words[iffer], collapse = "; ")
+    )
+  }
+
+
+  words <- toupper(words)
+  words <- str_replace_all(words, " +", "")
+  words <- str_replace_all(words, "Ä", "AE")
+  words <- str_replace_all(words, "Ö", "OE")
+  words <- str_replace_all(words, "Ü", "UE")
+  words <- str_replace_all(words, "ß", "SS")
+
+  # add empty space before and after
+  words <- paste0("#", words, "#")
+
+  # return
+  return(words)
+}

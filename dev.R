@@ -11,13 +11,11 @@ googlesheets::gs_ls()
 gs_crossword <- gs_title("kreuzworträtsel")
 lc_crossword <- gs_read_csv(gs_crossword)[, c("Wort", "Hinweis")]
 
-lc_crossword$Wort <- toupper(lc_crossword$Wort)
-lc_crossword$Wort <- paste0("#", lc_crossword$Wort, "#")
-lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, " +", "")
-lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "Ä", "AE")
-lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "Ö", "OE")
-lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "Ü", "UE")
-lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "ß", "SS")
+
+# prepare
+
+
+lc_crossword$Wort <- normalize_words(lc_crossword$Wort)
 
 lc_crossword <- lc_crossword[sample(seq_len(nrow(lc_crossword))),]
 
