@@ -22,7 +22,7 @@ lc_crossword$Wort <- str_replace_all(lc_crossword$Wort, "ß", "SS")
 lc_crossword <- lc_crossword[sample(seq_len(nrow(lc_crossword))),]
 
 grd <- cw_grid$new(30, 30)
-grd$add_words(lc_crossword$Wort[1:3], lc_crossword$Hinweis[1:3])
+grd$add_words(lc_crossword$Wort, lc_crossword$Hinweis)
 grd$words
 grd$density()
 grd
