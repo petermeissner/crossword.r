@@ -213,7 +213,7 @@ cw_grid <-
           word,
           clue
         ){
-          word <- toupper(word)
+          word <- normalize_words(word)
 
           # check if it fits at all
           word <- word[nchar(word) <= self$columns & nchar(word) <= self$rows]
@@ -267,7 +267,6 @@ cw_grid <-
 
           if ( (nrow(right) + nrow(down)) > 0 ) {
             # select one of the possible places
-
             words_right <- length(self$words$direction == "right")
             words_down  <- length(self$words$direction == "down")
 
@@ -293,7 +292,14 @@ cw_grid <-
               str_count(tmp$val, pattern = "[[:alpha:]]")
 
             # distance to middle
-            tmp$weight <- tmp$weight + (self$rows/2 - abs(self$rows/2 - 1:30)) / (self$rows/4)
+            tmp$weight <-
+              tmp$weight +
+              (
+                abs(tmp$row - self$rows/2) + abs(tmp$col - self$columns/2)
+              ) /
+              (
+                self$rows/2 + self$columns/2
+              )
 
 
             new_word <-
@@ -315,13 +321,15 @@ cw_grid <-
 
             # add word to grid
             self$put_word_on_grid(
-              word      = new_word$word,
+              word      = paste0("#", new_word$word, "#"),
               row       = new_word$row,
               column    = new_word$col,
               direction = new_word$direction
             )
           }else{
-            self$message("Could not place on grid - nothing that suffices restrictions")
+            self$message(
+              "Could not place on grid - nothing that suffices restrictions"
+            )
           }
 
           # return for piping
