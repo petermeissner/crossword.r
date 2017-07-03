@@ -29,53 +29,29 @@
 NULL
 
 
-#' @export
-crossword <-
-  R6::R6Class(
-    classname = "crossword",
-    public =
-      list(
-        initialize = function(rows = 10, columns = 10){
-          self$grid$rows    <- rows
-          self$grid$columns <- columns
-        },
-        grid = list()
-      ),
-    private      = NULL,
-    active       = NULL,
-    inherit      = r6extended,
-    lock_objects = TRUE,
-    class        = TRUE,
-    portable     = TRUE,
-    lock_class   = FALSE,
-    cloneable    = TRUE,
-    parent_env   = parent.frame()
-  )
-
-
 
 
 #' dings
-#' @name cw_grid
+#' @name crossword
 NULL
 
 #' @export
-cw_grid <-
+crossword <-
   R6::R6Class(
 
-  classname = "cw_grid",
+  classname = "crossword",
 
   public =
 
     list(
       # data fields
-      rows         = NULL,
-      columns      = NULL,
-      letters      = NULL,
-      words        = NULL,
+      rows               = NULL,
+      columns            = NULL,
+      letters            = NULL,
+      words              = NULL,
       restrictions_right = NULL,
       restrictions_down  = NULL,
-      grid_data = NULL,
+      grid_data          = NULL,
 
       # initilize
       initialize =
@@ -296,7 +272,7 @@ cw_grid <-
             # number of letters also occupying
             tmp$weight <-
               tmp$weight +
-              str_count(tmp$val, pattern = "[[:alpha:]]")
+              stringr::str_count(tmp$val, pattern = "[[:alpha:]]")
 
             # distance to middle
             tmp$weight <-
@@ -353,7 +329,9 @@ cw_grid <-
       },
 
       print = function(){
-        apply(self$letters, 1, function(x){cat(x); cat("\n")})
+        tmp <- cbind(seq_len(nrow(self$letters)) %% 10, self$letters)
+        tmp <- rbind( c(".",seq_len(ncol(self$letters)) %% 10), tmp )
+        apply(tmp, 1, function(x){cat(x); cat("\n")})
         invisible(self)
       },
 
@@ -361,7 +339,7 @@ cw_grid <-
         word_character <- sum(self$words$length)
         grid_width     <- max(self$words$col) - min(self$words$col) + 1
         grid_height    <- max(self$words$row) - min(self$words$row) + 1
-        grid_letters   <- str_count(paste(self$letters, collapse = ""), "[[:alpha:]]")
+        grid_letters   <- stringr::str_count(paste(self$letters, collapse = ""), "[[:alpha:]]")
 
         list(
           word_character = word_character,

@@ -1,12 +1,12 @@
 Package: crossword
-Date: 2017-05-26
+Date: 2017-07-03
 Type: Package
 Title: Generating Crosswords from Word Lists
-Version: 0.1.0
+Version: 0.2.0
 Author: Peter Meissner
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
-Description: This allows for using word lists to generate crosswords. 
-License: GPL-2
+Description: Generate crosswords from a list of words. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: R6 (>= 2.2.0),

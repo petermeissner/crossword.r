@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+.httr-oauth
+fillword_list.rds
+word_list.rds
+dev.R

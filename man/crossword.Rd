@@ -2,9 +2,12 @@
 % Please edit documentation in R/board.R
 \name{crossword}
 \alias{crossword}
+\alias{crossword}
 \title{Title}
 \description{
 Description
+
+dings
 }
 \section{Usage}{
 

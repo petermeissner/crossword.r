@@ -12,9 +12,15 @@ googlesheets::gs_ls()
 gs_crossword  <- gs_title("kreuzworträtsel")
 word_list     <- gs_read_csv(gs_crossword, ws=1)[, c("Wort", "Hinweis")]
 fillword_list <- gs_read_csv(gs_crossword, ws=2)[, c("Wort", "Hinweis")]
-if( !exists(word_list) ){
-  word_list <- data.frame(Wort = words, Hinweis = "")
+
+# get words when here is no inerne access
+if( !exists("word_list") ){
+  word_list <- readRDS("word_list.rds")
 }
+if( !exists("fillword_list") ){
+  fillword_list <- readRDS("fillword_list.rds")
+}
+
 
 # prepare
 word_list <- word_list[sample(seq_len(nrow(word_list))),]
@@ -22,6 +28,7 @@ word_list <- word_list[sample(seq_len(nrow(word_list))),]
 
 # gen grid
 grd <- cw_grid$new(30, 30)
+grd
 
 # add words
 grd$add_words(word_list$Wort, word_list$Hinweis)

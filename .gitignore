@@ -4,3 +4,5 @@
 .Ruserdata
 .httr-oauth
 crossword.Rproj
+fillword_list.rds
+word_list.rds
