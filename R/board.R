@@ -107,6 +107,13 @@ cw_grid <-
           self$letters <-
             matrix(".", nrow = rows, ncol = columns)
 
+          # fill margins with "#"
+          self$letters[1,] <- "#"
+          self$letters[dim(self$letters)[1],] <- "#"
+
+          self$letters[,1] <- "#"
+          self$letters[,dim(self$letters)[2]] <- "#"
+
 
           self$words <-
             data.frame(
