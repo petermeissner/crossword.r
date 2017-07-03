@@ -24,7 +24,11 @@
 #' @importFrom R6 R6Class
 #' @name crossword
 #' @examples
-#' p <- crossword$new(rows = 10, columns = 10)
+#' cw <- crossword$new(rows = 4, columns = 4)
+#' cw$add_words(c("back", "nasa", "kick", "nuk", "ic", "sic"))
+#' cw
+#' cw$letters
+#' cw$words
 #'
 NULL
 
@@ -60,13 +64,11 @@ crossword <-
           ## data ##
 
           # rows
+          rows <- rows + 2
           self$rows    <- rows
 
           # columns
-          self$columns <- columns
-
-          # ?
-          self$rows    <- rows
+          columns <- columns + 2
           self$columns <- columns
 
           tmp <-
@@ -109,6 +111,9 @@ crossword <-
             matrix("", nrow = rows, ncol = columns)
 
           self$grid_data <- tmp
+
+          # return
+          return(self)
         },
 
 
@@ -194,7 +199,7 @@ crossword <-
       add_word =
         function(
           word,
-          clue
+          clue = ""
         ){
           word <- normalize_words(word)
 
@@ -319,7 +324,12 @@ crossword <-
           return(self)
         },
 
-      add_words = function(words, clues){
+      add_words = function(words, clues = NULL){
+        # ensure matching length between words and clues for unset clues
+        if( is.null(clues) ){
+          clues <- rep("", length(words))
+        }
+
         for ( i in seq_along(words) ) {
           self$add_word(
             word = words[i],

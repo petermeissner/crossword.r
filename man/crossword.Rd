@@ -34,6 +34,7 @@ scalar.
 }
 
 \examples{
-p <- crossword$new(rows = 10, columns = 10)
+cw <- crossword$new(rows = 4, columns = 4)
+cw$add_words()
 
 }
