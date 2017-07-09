@@ -35,6 +35,9 @@ scalar.
 
 \examples{
 cw <- crossword$new(rows = 4, columns = 4)
-cw$add_words()
+cw$add_words(c("back", "nasa", "kick", "nuk", "ic", "sic"))
+cw
+cw$letters
+cw$words
 
 }

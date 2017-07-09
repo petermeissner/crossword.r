@@ -27,7 +27,7 @@ word_list <- word_list[sample(seq_len(nrow(word_list))),]
 
 
 # gen grid
-grd <- cw_grid$new(30, 30)
+grd <- crossword$new(30, 30)
 grd
 
 # add words
