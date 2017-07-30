@@ -3,7 +3,6 @@ library(dplyr)
 library(stringr)
 library(googlesheets)
 
-set.seed(3)
 
 # get words
 googlesheets::gs_auth()
@@ -23,17 +22,34 @@ if( !exists("fillword_list") ){
 
 
 # prepare
+set.seed(1032)
 word_list <- word_list[sample(seq_len(nrow(word_list))),]
 
 
 # gen grid
-grd <- crossword$new(30, 30)
+grd <- crossword$new(30, 40)
 grd
 
 # add words
 grd$add_words(word_list$Wort, word_list$Hinweis)
 grd$add_words(fillword_list$Wort, fillword_list$Hinweis)
 grd
+
+
+
+system.time({
+  RES <- list()
+  for(i in 1:1500){
+    set.seed(1032)
+    word_list <- word_list[sample(seq_len(nrow(word_list))),]
+    grd       <- crossword$new(30, 40)
+    grd$add_words(word_list$Wort, word_list$Hinweis)
+    RES[[i]] <- grd$density()
+  }
+})
+
+res <- do.call(rbind, RES)
+
 
 # check result
 grd$words

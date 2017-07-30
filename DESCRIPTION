@@ -1,5 +1,5 @@
 Package: crossword
-Date: 2017-07-03
+Date: 2017-07-30
 Type: Package
 Title: Generating Crosswords from Word Lists
 Version: 0.2.0
@@ -11,5 +11,6 @@ Encoding: UTF-8
 LazyData: true
 Imports: R6 (>= 2.2.0),
     dplyr (>= 0.5.0),
-    stringr (>= 1.2.0)
+    stringr (>= 1.2.0),
+    magrittr (>= 1.5)
 RoxygenNote: 6.0.1
