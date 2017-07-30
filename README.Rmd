@@ -1,0 +1,168 @@
+---
+output: github_document
+---
+
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "README-"
+)
+```
+
+
+```{r, include=FALSE}
+options("width"=110)
+tmp <- packageDescription( basename(getwd()) )
+```
+
+```{r, results='asis', echo=FALSE}
+cat("#", tmp$Title)
+```
+
+
+
+```{r, include=FALSE}
+filelist.R   <- list.files("R", recursive = TRUE, pattern="\\.R$", ignore.case = TRUE, full.names = TRUE)
+filelist.tests   <- list.files("tests", recursive = TRUE, pattern="\\.R$", ignore.case = TRUE, full.names = TRUE)
+filelist.cpp <- list.files("src", recursive = TRUE, pattern="\\.cpp$", ignore.case = TRUE, full.names = TRUE)
+lines.R      <- unlist(lapply(filelist.R, readLines))
+lines.tests  <- unlist(lapply(filelist.tests, readLines))
+lines.cpp    <- unlist(lapply(filelist.cpp, readLines))
+length.R     <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.R,  value = TRUE, invert = TRUE))
+length.tests <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.tests,  value = TRUE, invert = TRUE))
+length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = TRUE, invert = TRUE))
+```
+
+
+
+
+**Status**
+
+<a href="https://travis-ci.org/petermeissner/crossword">
+<img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master">
+<a/>
+<a href="https://cran.r-project.org/package=crossword">
+<img src="http://www.r-pkg.org/badges/version/crossword">
+</a>
+[![codecov](https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/crossword/tree/master/R)
+<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword">
+<img src="http://cranlogs.r-pkg.org/badges/crossword">
+
+
+*lines of R code:* `r length.R`, *lines of test code:* `r length.tests`
+
+
+
+**Development version**
+
+```{r, include=FALSE}
+source_files <- 
+  grep(
+    "/R/|/src/|/tests/",
+    list.files(recursive = TRUE, full.names = TRUE), 
+    value = TRUE
+  )
+last_change <- 
+  as.character(
+    format(max(file.info(source_files)$mtime), tz="UTC")
+  )
+```
+
+
+```{r, results='asis', echo=FALSE}
+cat(tmp$Version)
+cat(" - ")
+cat(stringr::str_replace(last_change, " ", " / "))
+```
+
+**Description**
+
+```{r, results='asis', echo=FALSE}
+cat(tmp$Description)
+```
+
+
+**License**
+
+```{r, results='asis', echo=FALSE}
+cat(tmp$License, "<br>")
+cat(tmp$Author)
+```
+
+
+
+
+**Citation**
+
+
+```{r, results='asis',  eval=FALSE}
+citation("crossword")
+```
+
+**BibTex for citing**
+
+```{r, eval=FALSE}
+toBibtex(citation("crossword"))
+```
+
+
+
+**Installation**
+
+Stable version from CRAN:
+
+```{r, eval=FALSE}
+install.packages("crossword")
+```
+
+
+Latest development version from Github:
+
+```{r, eval=FALSE}
+devtools::install_github("petermeissner/crossword")
+```
+
+
+
+
+
+
+# Usage
+
+```{r}
+# load the library
+library(crossword)
+
+# create a new 4 by 4 crossword
+cw <- crossword$new(rows = 4, columns = 4)
+
+# add a list of words
+words <- c("back", "nasa", "kick", "nuk", "ic", "sic")
+clues <- rep("-", length(words))
+
+cw$add_words(
+  words = words,
+  clues = clues
+)
+```
+
+
+```{r}
+# use the default print method to have a look
+cw
+```
+
+
+```{r}
+# access to letters on the grid
+cw$letters
+
+# access to words placed on the grid, their co-ordinates and so on
+cw$words
+```
+
+
+
+
