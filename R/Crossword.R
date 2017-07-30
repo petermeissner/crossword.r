@@ -1,4 +1,4 @@
-#' Title
+#' A class for generating crosswords from word lists
 #'
 #' Description
 #'
@@ -22,25 +22,15 @@
 #'
 #'
 #' @importFrom R6 R6Class
-#' @name crossword
+#' @name Crossword
 #' @examples
-#' cw <- crossword$new(rows = 4, columns = 4)
+#' cw <- Crossword$new(rows = 4, columns = 4)
 #' cw$add_words(c("back", "nasa", "kick", "nuk", "ic", "sic"))
 #' cw
 #' cw$letters
 #' cw$words
 #'
-NULL
-
-
-
-
-#' dings
-#' @name crossword
-NULL
-
-#' @export
-crossword <-
+Crossword <-
   R6::R6Class(
 
   classname = "crossword",
@@ -49,13 +39,13 @@ crossword <-
 
     list(
       # data fields
-      rows               = NULL,
-      columns            = NULL,
-      letters            = NULL,
-      words              = NULL,
-      restrictions_right = NULL,
-      restrictions_down  = NULL,
-      grid_data          = NULL,
+      rows               = NULL, # number of rows
+      columns            = NULL, # number of columns
+      letters            = NULL, # matrix of letters repsesenting the grid
+      words              = NULL, # data.frame listing word coordinates and info
+      restrictions_right = NULL, # data.frame storing restrictions on placing a word for each coordinate of grid
+      restrictions_down  = NULL, # data.frame storing restrictions on placing a word for each coordinate of grid
+      grid_data          = NULL, # data.frame storing space available to down adn right
 
       # initilize
       initialize =
