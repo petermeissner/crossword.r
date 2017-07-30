@@ -7,3 +7,5 @@ dev.R
 ^\.travis\.yml$
 ^README\.Rmd$
 ^README-.*\.png$
+logo/
+presentation/

@@ -1,0 +1,114 @@
+---
+title: "R Class and Package for Generating Crosswords"
+subtitle: "R Meetup Hamburg"
+author: "Peter Meissner"
+date: "01 July 2017"
+output: 
+  ioslides_presentation: 
+    transition: faster
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, width.cutoff=120)
+```
+
+
+## Usage
+
+```{r}
+library(crossword)
+
+cw <- 
+  Crossword$new(rows = 4, columns = 4)
+```
+
+## Usage
+
+```{r}
+cw$add_words(
+  c("back", "nasa", "kick", "nuk", "ic", "sic")
+)
+```
+
+
+## Usage 
+
+```{r}
+cw
+```
+
+
+
+## Data
+
+```{r}
+cw$letters
+```
+
+## Data
+
+```{r}
+cw$words
+```
+
+
+## Technicalities
+
+- OOP:
+    * not a fan of OOP ... but!
+    * multiple pieces of data that only make sense together
+    * easier to iterate on data and functions at the same time
+    * state is important - adding words depends on the grid state
+    * R6 (easy to use classes for traditional OOP)
+
+## Technicalities
+
+- data fields: 
+    * `rows` (integer)
+    * `columns` (integer)
+    * `letters` (matrix)
+    * `words` (data.frame)
+    * [`restrictions_right`, `restrictions_down` (data.frame)]
+    
+## Technicalities
+
+- methods: 
+    * `initialize()` (row, columns)
+    * `add_words()` (words, clues)
+    * `density()` 
+    * [`put_word_on_grid()`, `add_words()`, `update_grid_data()`, `print()`]
+
+
+## Algorithm?
+
+- quite dumb 
+- loop over words
+- data on cells: 
+    * space (right/down)
+    * letters already placed
+- adding word
+    * which cells have enough space
+    * which cell's regex match the word
+- placing based on weighting of cells 
+    * balance right and down
+    * try to put in the center of grid
+    * try to cross as many letters on grid as possible
+
+
+
+
+## End
+
+- Peter Meissner
+    * `twitter  <- "marvin_dpr"`
+    * `homepage <- "pmeissner.com"`
+    *  `Github   <- "petermeissner"`
+    
+    
+
+- crossword
+    * `status <- "work in progress"` 
+    * `url <- "https://github.com/petermeissner/crossword"`
+
+
+
