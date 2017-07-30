@@ -4,3 +4,6 @@
 fillword_list.rds
 word_list.rds
 dev.R
+^\.travis\.yml$
+^README\.Rmd$
+^README-.*\.png$
