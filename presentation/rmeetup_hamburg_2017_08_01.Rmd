@@ -4,7 +4,11 @@ subtitle: "R Meetup Hamburg"
 author: "Peter Meissner"
 date: "01 July 2017"
 output: 
+  beamer_presentation: 
+    fonttheme: professionalfonts
+    toc: yes
   ioslides_presentation: 
+    logo: ~/Dropbox/RPackages/crossword/logo/Logo_128.png
     transition: faster
 ---
 
