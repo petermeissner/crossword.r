@@ -136,7 +136,7 @@ devtools::install_github("petermeissner/crossword")
 library(crossword)
 
 # create a new 4 by 4 crossword
-cw <- crossword$new(rows = 4, columns = 4)
+cw <- Crossword$new(rows = 4, columns = 4)
 
 # add a list of words
 words <- c("back", "nasa", "kick", "nuk", "ic", "sic")
