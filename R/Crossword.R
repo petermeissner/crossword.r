@@ -245,7 +245,7 @@ Crossword <-
             dplyr::rename(length = nchar) %>%
             dplyr::mutate(
               direction = "right",
-              clue      = "",
+              clue      = clue,
               word      = word,
               val       = substring(val, 1, nchar(word))
             )
