@@ -4,7 +4,7 @@
 #'
 #' @section Usage:
 #' \preformatted{
-#'   cw <- crossword$new()
+#'   cw <- Crossword$new()
 #' }
 #'
 #' @section Arguments:
