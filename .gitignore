@@ -6,3 +6,6 @@
 crossword.Rproj
 fillword_list.rds
 word_list.rds
+dev.R
+grid.csv
+wortliste.csv
