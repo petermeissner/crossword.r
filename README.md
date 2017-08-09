@@ -6,11 +6,11 @@ Generating Crosswords from Word Lists
 
 <a href="https://travis-ci.org/petermeissner/crossword"> <img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword"> <img src="http://www.r-pkg.org/badges/version/crossword"> </a> [![codecov](https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/crossword/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword"> <img src="http://cranlogs.r-pkg.org/badges/crossword">
 
-*lines of R code:* 431, *lines of test code:* 0
+*lines of R code:* 429, *lines of test code:* 0
 
 **Development version**
 
-0.2.0 - 2017-07-30 / 17:10:55
+0.2.0 - 2017-08-09 / 19:05:23
 
 **Description**
 
@@ -54,7 +54,7 @@ Usage
 library(crossword)
 
 # create a new 4 by 4 crossword
-cw <- crossword$new(rows = 4, columns = 4)
+cw <- Crossword$new(rows = 4, columns = 4)
 
 # add a list of words
 words <- c("back", "nasa", "kick", "nuk", "ic", "sic")
