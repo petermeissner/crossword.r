@@ -14,7 +14,7 @@ Description
 \section{Usage}{
 
 \preformatted{
-  cw <- crossword$new()
+  cw <- Crossword$new()
 }
 }
 

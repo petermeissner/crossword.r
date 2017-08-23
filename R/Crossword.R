@@ -322,6 +322,7 @@ Crossword <-
           return(self)
         },
 
+      # adding lists of words (and its clue)
       add_words = function(words, clues = NULL){
         # ensure matching length between words and clues for unset clues
         if( is.null(clues) ){
@@ -336,6 +337,7 @@ Crossword <-
         }
       },
 
+      # the crosswords print method
       print = function(){
         tmp <- cbind(seq_len(nrow(self$letters)) %% 10, self$letters)
         tmp <- rbind( c(".",seq_len(ncol(self$letters)) %% 10), tmp )
@@ -343,6 +345,8 @@ Crossword <-
         invisible(self)
       },
 
+
+      # caculating the 'quality of the crossword'
       density = function(){
         word_character <- sum(self$words$length)
         grid_width     <- max(self$words$col) - min(self$words$col) + 1
@@ -355,7 +359,12 @@ Crossword <-
           grid_height    = grid_height,
           grid_letters   = grid_letters
         )
+      },
+
+      to_pdf = function(){
+
       }
+
 
     ),
   private      = NULL,

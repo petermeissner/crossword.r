@@ -10,7 +10,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.2.0 - 2017-08-09 / 19:05:23
+0.2.0 - 2017-08-21 / 18:57:01
 
 **Description**
 

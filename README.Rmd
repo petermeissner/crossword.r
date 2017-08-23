@@ -140,7 +140,7 @@ cw <- Crossword$new(rows = 4, columns = 4)
 
 # add a list of words
 words <- c("back", "nasa", "kick", "nuk", "ic", "sic")
-clues <- rep("-", length(words))
+clues <- c("!forward", "first on moon", "... the ball", "ISO 639-3", "ISO 3166-1", "thus was it written")
 
 cw$add_words(
   words = words,
