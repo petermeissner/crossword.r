@@ -165,4 +165,11 @@ cw$words
 
 
 
+```{r eval=FALSE}
+# render to PDF
+fname <- cw_to_pdf(cw)
+browseURL(fname)
+```
+
+
 

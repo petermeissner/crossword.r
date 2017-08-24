@@ -1,6 +1,6 @@
 #' glue together parameters and cwpuzzle template
 #'
-#' @param cw
+#' @param cw a crossword object
 #'
 #'
 cw_glue_clues <- function(cw){

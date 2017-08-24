@@ -7,7 +7,7 @@
 cw_glue_solution(cw)
 }
 \arguments{
-\item{cw}{}
+\item{cw}{crossword object}
 }
 \description{
 glue together parameters and cwpuzzle template

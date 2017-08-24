@@ -1,8 +1,7 @@
 #' convert to cwpuzzle table
 #'
-#' @param cw
+#' @param cw crossword object
 #'
-#' @return
 cw_glue_table <- function(cw){
   # TODO: add numbers for clues
   cw_glue_letters(cw$letters)

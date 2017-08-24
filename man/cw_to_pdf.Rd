@@ -6,6 +6,12 @@
 \usage{
 cw_to_pdf(cw, fname = NULL)
 }
+\arguments{
+\item{cw}{a crossword object}
+
+\item{fname}{defaults to NULL --> tempfile;
+the file name to render crossword into}
+}
 \description{
 function that takes a crossword and renders it as PDF
 }

@@ -7,7 +7,10 @@
 cw_glue_head(cw, geometry_options = "a4paper, margin=2cm")
 }
 \arguments{
-\item{cw}{}
+\item{cw}{a crossword object}
+
+\item{geometry_options}{comma separated options string directly passed
+through to LaTeX geometry package}
 }
 \description{
 glue together parameters and cwpuzzle template

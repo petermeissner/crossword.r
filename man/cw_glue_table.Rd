@@ -2,13 +2,13 @@
 % Please edit documentation in R/cw_glue_table.R
 \name{cw_glue_table}
 \alias{cw_glue_table}
-\title{convert to cwpuzzle}
+\title{convert to cwpuzzle table}
 \usage{
-cw_glue_table(x)
+cw_glue_table(cw)
 }
 \arguments{
-\item{x}{the letters matrix of a crossword}
+\item{cw}{crossword object}
 }
 \description{
-Converts an R-crossword to a table that can be used with LaTeX cwpuzzle
+convert to cwpuzzle table
 }

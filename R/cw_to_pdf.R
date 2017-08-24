@@ -1,5 +1,9 @@
 #' function that takes a crossword and renders it as PDF
 #'
+#' @param cw a crossword object
+#' @param fname defaults to NULL --> tempfile;
+#'              the file name to render crossword into
+#'
 #' @export
 #'
 cw_to_pdf <- function(cw, fname = NULL){

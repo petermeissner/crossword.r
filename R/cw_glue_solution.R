@@ -1,6 +1,6 @@
 #' glue together parameters and cwpuzzle template
 #'
-#' @param cw
+#' @param cw crossword object
 #'
 #' @export
 #'

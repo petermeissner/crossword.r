@@ -7,7 +7,7 @@
 cw_words_add_id(cw_words)
 }
 \arguments{
-\item{cw_words}{}
+\item{cw_words}{words field of crossword object}
 }
 \description{
 add an id unique for all unique combinations of row and column
