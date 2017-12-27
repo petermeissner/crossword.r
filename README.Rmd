@@ -131,20 +131,20 @@ devtools::install_github("petermeissner/crossword")
 
 # Usage
 
-```{r}
+```{r, message=FALSE}
 # load the library
 library(crossword)
 
-# create a new 4 by 4 crossword
-cw <- Crossword$new(rows = 4, columns = 4)
+# set seed for pseudo random number generator
+set.seed(123)
 
-# add a list of words
-words <- c("back", "nasa", "kick", "nuk", "ic", "sic")
-clues <- c("!forward", "first on moon", "... the ball", "ISO 639-3", "ISO 3166-1", "thus was it written")
+# create a new 4 by 4 crossword
+cw       <- Crossword$new(rows = 10, columns = 10)
+cw_words <- cw_wordlist_animal_en[sample(nrow(cw_wordlist_animal_en)),]
 
 cw$add_words(
-  words = words,
-  clues = clues
+  words = cw_words$words,
+  clues = cw_words$clues
 )
 ```
 
