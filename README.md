@@ -7,9 +7,11 @@
 <img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master">
 <a/> <a href="https://cran.r-project.org/package=crossword">
 <img src="http://www.r-pkg.org/badges/version/crossword"> </a>
+<a href="">
 <img src="https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg">
-<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword">
-<img src="http://cranlogs.r-pkg.org/badges/crossword">
+</a> <a href="">
+<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword"> </a>
+<a href=""> <img src="http://cranlogs.r-pkg.org/badges/crossword"> </a>
 
 *lines of R code:* 708, *lines of test code:* 0
 
