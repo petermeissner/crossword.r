@@ -7,7 +7,7 @@
 <img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master">
 <a/> <a href="https://cran.r-project.org/package=crossword">
 <img src="http://www.r-pkg.org/badges/version/crossword"> </a>
-[![codecov](https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/crossword/tree/master/R)
+<img src="https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg">
 <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword">
 <img src="http://cranlogs.r-pkg.org/badges/crossword">
 
