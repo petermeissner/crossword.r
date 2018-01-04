@@ -6,11 +6,11 @@ Generating Crosswords from Word Lists
 
 <a href="https://travis-ci.org/petermeissner/crossword"> <img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword"> <img src="http://www.r-pkg.org/badges/version/crossword"> </a> <a href=""> <img src="https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/crossword"> </a>
 
-*lines of R code:* 600, *lines of test code:* 0
+*lines of R code:* 616, *lines of test code:* 0
 
 **Development version**
 
-0.3.1 - 2018-01-04 / 09:11:02
+0.3.1 - 2018-01-04 / 10:51:19
 
 **Description**
 
@@ -64,37 +64,6 @@ cw$add_words(
   words = cw_words$words,
   clues = cw_words$clues
 )
-## #EEL# / 11 / 1 / right / 
-## 
-## #SALMON# / 1 / 11 / down / 
-## 
-## #GORILLA# / 3 / 4 / right / 
-## 
-## #SPIDER# / 2 / 1 / right / 
-## 
-## #TORTOISE# / 3 / 2 / down / 
-## 
-## #JACKAL# / 4 / 5 / right / 
-## 
-## #SNAIL# / 10 / 1 / right / 
-## 
-## #KANGAROO# / 6 / 3 / right / 
-## 
-## #HARE# / 4 / 5 / down / 
-## 
-## #TERMITE# / 8 / 3 / right / 
-## 
-## #MINNOW# / 11 / 5 / right / 
-## 
-## #WEASEL# / 9 / 5 / right / 
-## 
-## #BEE# / 10 / 8 / right / 
-## 
-## #CRAB# / 7 / 3 / right / 
-## 
-## #APE# / 5 / 6 / right / 
-## 
-## #OX# / 5 / 1 / right /
 ```
 
 ``` r
