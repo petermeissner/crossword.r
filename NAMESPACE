@@ -2,10 +2,7 @@
 
 export("%>%")
 export(Crossword)
-export(cw_glue_head)
-export(cw_glue_solution)
 export(cw_r6_extended)
-export(cw_to_pdf)
 export(cw_wordlist_animal_en)
 export(greplv)
 export(matrix_to_df)
