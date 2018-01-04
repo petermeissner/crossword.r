@@ -42,6 +42,7 @@ Crossword <-
   R6::R6Class(
 
   classname = "crossword",
+  inherit   = cw_r6_extended,
 
   public =
 
@@ -57,16 +58,20 @@ Crossword <-
 
       # initilize
       initialize =
-        function(rows = 10, columns = 10){
+        function(rows = 10, columns = 10, verbose = FALSE){
+
+          ## options ##
+          self$options$verbose = verbose
+
 
           ## data ##
 
           # rows
-          rows <- rows + 2
-          self$rows    <- rows
+          rows      <- rows + 2
+          self$rows <- rows
 
           # columns
-          columns <- columns + 2
+          columns      <- columns + 2
           self$columns <- columns
 
           tmp <-
@@ -123,20 +128,26 @@ Crossword <-
           column    = 1,
           direction = c("down", "right")
         ){
-          cat(word, row, column, direction, "\n\n", sep=" / ")
-        if( direction == "right"){
-          stopifnot( nchar(word) <= (self$columns - column + 1))
-          self$letters[row, column:(column+nchar(word)-1)] <- unlist(strsplit(word, ""))
-        }else if ( direction == "down" ){
-          stopifnot( nchar(word) <= (self$rows - row + 1))
-          self$letters[row:(row+nchar(word)-1), column] <- unlist(strsplit(word, ""))
-        }else{
-          stop("direction neither 'down' nor 'right'")
-        }
+          self$message(c(word, row, column, direction, "\n\n", sep=" / "))
 
-        # return
-        return(self)
-      },
+          if( direction == "right" ) {
+
+            stopifnot( nchar(word) <= (self$columns - column + 1))
+            self$letters[row, column:(column+nchar(word)-1)] <- unlist(strsplit(word, ""))
+
+          }else if ( direction == "down" ){
+
+            stopifnot( nchar(word) <= (self$rows - row + 1))
+            self$letters[row:(row+nchar(word)-1), column] <- unlist(strsplit(word, ""))
+          }else{
+
+            stop("direction neither 'down' nor 'right'")
+
+          }
+
+          # return
+          return(self)
+        },
 
       # update restrictions
       update_grid_data =
@@ -361,21 +372,20 @@ Crossword <-
         )
       },
 
-      to_pdf = function(){
+  # json export function
+  to_json =
+    function(pretty = FALSE){
+      cw_to_json(self, pretty = pretty)
+    }
 
-      }
-
-
-    ),
+  ),
   private      = NULL,
   active       = NULL,
-  inherit      = cw_r6_extended,
   lock_objects = TRUE,
   class        = TRUE,
   portable     = TRUE,
   lock_class   = FALSE,
-  cloneable    = TRUE,
-  parent_env   = parent.frame()
+  cloneable    = TRUE
 )
 
 

@@ -2,7 +2,6 @@
 #'
 #' @param x the data.frame to transform
 #'
-#' @export
 #'
 matrix_to_df <- function(x){
   data.frame(
@@ -15,7 +14,6 @@ matrix_to_df <- function(x){
 
 #' a vectorized version of grep
 #' @inheritParams base::grepl
-#' @export
 greplv <-
   compiler::cmpfun(
     Vectorize(grepl, vectorize.args = "pattern")
@@ -25,7 +23,6 @@ greplv <-
 #'
 #' @param words character vector of words to normalize for crossword usage
 #'
-#' @export
 #'
 normalize_words <- function(words){
 

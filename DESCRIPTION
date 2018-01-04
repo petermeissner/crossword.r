@@ -2,7 +2,7 @@ Package: crossword
 Date: 2018-01-04
 Type: Package
 Title: Generating Crosswords from Word Lists
-Version: 0.3.1
+Version: 0.3.2
 Author: Peter Meissner
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: Generate crosswords from a list of words. 
@@ -13,5 +13,5 @@ Imports: R6 (>= 2.2.0),
     dplyr (>= 0.5.0),
     stringr (>= 1.2.0),
     magrittr (>= 1.5),
-    glue (>= 1.1.1)
+    jsonlite (>= 1.5)
 RoxygenNote: 6.0.1
