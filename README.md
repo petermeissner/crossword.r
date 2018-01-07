@@ -15,6 +15,10 @@
 
 *lines of R code:* 625, *lines of test code:* 0
 
+**Youtube video of Hamburg UseR Meetup presentation**
+
+<https://youtu.be/56qrwa4bzK8>
+
 **Development version**
 
 0.3.2 - 2018-01-07 / 08:15:34
