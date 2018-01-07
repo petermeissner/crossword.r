@@ -3,7 +3,7 @@
 #' @param x the data.frame to transform
 #'
 #'
-matrix_to_df <- function(x){
+cw_matrix_to_df <- function(x){
   data.frame(
     row = as.vector(row(x)),
     col = as.vector(col(x)),
@@ -14,7 +14,9 @@ matrix_to_df <- function(x){
 
 #' a vectorized version of grep
 #' @inheritParams base::grepl
-greplv <-
+#'
+#'
+cw_greplv <-
   compiler::cmpfun(
     Vectorize(grepl, vectorize.args = "pattern")
   )
@@ -24,7 +26,7 @@ greplv <-
 #' @param words character vector of words to normalize for crossword usage
 #'
 #'
-normalize_words <- function(words){
+cw_normalize_words <- function(words){
 
   # check for non
   iffer <- stringr::str_detect(words, "\\W")
