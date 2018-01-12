@@ -4,7 +4,7 @@
 \name{cw_wordlist_animal_en}
 \alias{cw_wordlist_animal_en}
 \title{en - animals}
-\format{An object of class \code{data.frame} with 134 rows and 2 columns.}
+\format{An object of class \code{data.frame} with 68 rows and 2 columns.}
 \usage{
 cw_wordlist_animal_en
 }
