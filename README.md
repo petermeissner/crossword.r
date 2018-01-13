@@ -6,7 +6,7 @@ Generating Crosswords from Word Lists
 
 <a href="https://travis-ci.org/petermeissner/crossword.r"> <img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword.r"> <img src="http://www.r-pkg.org/badges/version/crossword.r"> </a> <a href=""> <img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/crossword.r"> </a>
 
-*lines of R code:* 567, *lines of test code:* 0
+*lines of R code:* 397, *lines of test code:* 41
 
 **Youtube video of Hamburg UseR Meetup presentation**
 
@@ -14,7 +14,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.3.3 - 2018-01-13 / 21:40:13
+0.3.4 - 2018-01-13 / 23:26:28
 
 **Description**
 

@@ -32,6 +32,10 @@ test_that(
       cw_normalize_words(c("öäüßÖÄÜ")) == "#OEAEUESSOEAEUE#"
     })
 
+    expect_warning({
+      cw_normalize_words("data-science")
+    })
+
 
     expect_error({
       cw <- Crossword$new(rows = 10, columns = 10)
@@ -42,7 +46,14 @@ test_that(
       cw <- Crossword$new(rows = 2, columns = 2)
       cw$add_words("a", "b")
       cw$add_words(letters[1:10], LETTERS[1:10])
+      cw$add_word("meineomafährtimhühnerstallmotorad")
     })
+
+    expect_true({
+        cw$print()
+        cw$density()
+        TRUE
+      })
 
   }
 )

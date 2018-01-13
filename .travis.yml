@@ -1,7 +1,10 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-r_github_packages: petermeissner/r6extended
+r_github_packages:
+  - r-lib/covr
 sudo: false
 cache: packages
+after_success:
+  - Rscript -e 'covr::codecov()'
 
