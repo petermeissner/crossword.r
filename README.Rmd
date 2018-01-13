@@ -42,20 +42,20 @@ length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = T
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/crossword">
-<img src="https://api.travis-ci.org/petermeissner/crossword.svg?branch=master">
+<a href="https://travis-ci.org/petermeissner/crossword.r">
+<img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master">
 <a/>
-<a href="https://cran.r-project.org/package=crossword">
-<img src="http://www.r-pkg.org/badges/version/crossword">
+<a href="https://cran.r-project.org/package=crossword.r">
+<img src="http://www.r-pkg.org/badges/version/crossword.r">
 </a>
 <a href="">
-<img src="https://codecov.io/gh/petermeissner/crossword/branch/master/graph/badge.svg">
+<img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg">
 </a>
 <a href="">
-<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword">
+<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r">
 </a>
 <a href="">
-<img src="http://cranlogs.r-pkg.org/badges/crossword">
+<img src="http://cranlogs.r-pkg.org/badges/crossword.r">
 </a>
 
 
@@ -111,13 +111,13 @@ cat(tmp$Author)
 
 
 ```{r, results='asis',  eval=FALSE}
-citation("crossword")
+citation("crossword.r")
 ```
 
 **BibTex for citing**
 
 ```{r, eval=FALSE}
-toBibtex(citation("crossword"))
+toBibtex(citation("crossword.r"))
 ```
 
 
@@ -127,14 +127,14 @@ toBibtex(citation("crossword"))
 Stable version from CRAN:
 
 ```{r, eval=FALSE}
-install.packages("crossword")
+install.packages("crossword.r")
 ```
 
 
 Latest development version from Github:
 
 ```{r, eval=FALSE}
-devtools::install_github("petermeissner/crossword")
+devtools::install_github("petermeissner/crossword.r")
 ```
 
 

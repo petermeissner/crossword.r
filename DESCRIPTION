@@ -1,4 +1,4 @@
-Package: crossword
+Package: crossword.r
 Date: 2018-01-07
 Type: Package
 Title: Generating Crosswords from Word Lists
