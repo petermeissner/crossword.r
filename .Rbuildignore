@@ -10,3 +10,4 @@ dev.R
 logo/
 presentation/
 rendering/
+^codecov\.yml$

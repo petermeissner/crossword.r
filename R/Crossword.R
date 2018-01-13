@@ -140,13 +140,28 @@ Crossword <-
 
             if( direction == "right" ) {
 
+              # check
               stopifnot( nchar(word) <= (self$columns - column + 1))
-              self$letters[row, column:(column+nchar(word)-1)] <- unlist(strsplit(word, ""))
+
+              # assignment
+              self$letters[
+                row,
+                column:(column+nchar(word)-1)
+              ] <-
+                unlist(strsplit(word, ""))
 
             }else if ( direction == "down" ){
 
+              # check
               stopifnot( nchar(word) <= (self$rows - row + 1))
-              self$letters[row:(row+nchar(word)-1), column] <- unlist(strsplit(word, ""))
+
+              # assignment
+              self$letters[
+                row:(row+nchar(word)-1),
+                column
+              ] <-
+                unlist(strsplit(word, ""))
+
             }else{
 
               stop("direction neither 'down' nor 'right'")
@@ -234,7 +249,10 @@ Crossword <-
 
             # available places down
             iffer <-
-              cw_greplv(substring(self$restrictions_down$val, 1, nchar(word)), word) &
+              cw_greplv(
+                substring(self$restrictions_down$val, 1, nchar(word)),
+                word
+              ) &
               nchar(self$restrictions_down$val) >= nchar(word)
 
             down <-
@@ -253,7 +271,10 @@ Crossword <-
 
             # available places right
             iffer <-
-              cw_greplv(substring(self$restrictions_right$val, 1, nchar(word)), word) &
+              cw_greplv(
+                substring(self$restrictions_right$val, 1, nchar(word)),
+                word
+              ) &
               nchar(self$restrictions_right$val) >= nchar(word)
 
             right <-
@@ -317,12 +338,6 @@ Crossword <-
                 dplyr::slice(1) %>%
                 dplyr::select(-val, -weight)
 
-              # add word selection to words
-              self$words <-
-                rbind(
-                  self$words,
-                  new_word
-                )
 
               # add word to grid
               self$put_word_on_grid(
@@ -331,6 +346,19 @@ Crossword <-
                 column    = new_word$col,
                 direction = new_word$direction
               )
+
+              # add word selection to words
+              if( new_word$direction == "down" ){
+                new_word$col <- new_word$col - 1L
+              }else if( new_word$direction == "right" ){
+                new_word$row <- new_word$row - 1L
+              }
+
+              self$words <-
+                rbind(
+                  self$words,
+                  new_word
+                )
             }else{
               self$message(
                 "Could not place on grid - nothing that suffices restrictions"

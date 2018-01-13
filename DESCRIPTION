@@ -1,8 +1,8 @@
 Package: crossword.r
-Date: 2018-01-07
+Date: 2018-01-13
 Type: Package
 Title: Generating Crosswords from Word Lists
-Version: 0.3.3
+Version: 0.3.4
 Author: Peter Meissner
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: Generate crosswords from a list of words. 
@@ -15,7 +15,7 @@ Imports: R6 (>= 2.2.0),
     magrittr (>= 1.5),
     jsonlite (>= 1.5)
 RoxygenNote: 6.0.1
-Collate: 
+Collate:
     'cw_matrix_to_df.R'
     'Crossword.R'
     'cw_glue_clues.R'
@@ -32,3 +32,4 @@ Collate:
     'cw_wordlist_animal_en.R'
     'cw_words_add_id.R'
     'pipe.R'
+Suggests: covr
