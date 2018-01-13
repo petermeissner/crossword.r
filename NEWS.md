@@ -1,7 +1,15 @@
 
+# crossword 0.3.4 -- 2018-01-13
+
+* fix: coordinates were off by one
+* adding tests
+* general cleanup
+
+
 # crossword 0.3.3 -- 2018-01-07
 
 * changed print method -- fixes #3
+
 
 # crossword 0.3.2 -- 2018-01-04
 

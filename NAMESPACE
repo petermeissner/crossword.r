@@ -2,7 +2,6 @@
 
 export("%>%")
 export(Crossword)
-export(cw_r6_extended)
 export(cw_wordlist_animal_en)
 importFrom(R6,R6Class)
 importFrom(magrittr,"%>%")

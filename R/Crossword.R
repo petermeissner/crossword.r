@@ -50,7 +50,7 @@ Crossword <-
     parent_env = asNamespace('crossword.r'),
 
     classname    = "crossword",
-    inherit      = cw_r6_extended,
+    inherit      = r6extended::r6extended,
 
     public =
 

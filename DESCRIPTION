@@ -18,18 +18,9 @@ RoxygenNote: 6.0.1
 Collate:
     'cw_matrix_to_df.R'
     'Crossword.R'
-    'cw_glue_clues.R'
-    'cw_glue_head.R'
-    'cw_glue_letters.R'
-    'cw_glue_puzzle.R'
-    'cw_glue_solution.R'
-    'cw_glue_table.R'
     'cw_greplv.R'
     'cw_normalize_words.R'
-    'cw_r6_extended.R'
     'cw_to_json.R'
-    'cw_to_pdf.R'
     'cw_wordlist_animal_en.R'
-    'cw_words_add_id.R'
-    'pipe.R'
-Suggests: covr
+Suggests: covr,
+    testthat
