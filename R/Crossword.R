@@ -47,7 +47,7 @@ Crossword <-
     lock_class   = FALSE,
     cloneable    = TRUE,
 
-    parent_env = asNamespace('crossword'),
+    parent_env = asNamespace('crossword.r'),
 
     classname    = "crossword",
     inherit      = cw_r6_extended,
@@ -360,13 +360,24 @@ Crossword <-
         print = function(){
           tmp <-
             cbind(
-              c(".", head((seq_len(nrow(self$letters)) %% 10), nrow(self$letters)-1)),
+              c(
+                ".",
+                head(
+                  (seq_len(nrow(self$letters)) %% 10),
+                  nrow(self$letters)-1)
+                ),
               self$letters
             )
 
           tmp <-
             rbind(
-              c(".", ".", head(seq_len(ncol(self$letters)) %% 10,  ncol(self$letters)-1)),
+              c(
+                ".",
+                ".",
+                head(
+                  seq_len(ncol(self$letters)) %% 10,
+                  ncol(self$letters)-1)
+                ),
               tmp
             )
           apply(tmp, 1, function(x){cat(x); cat("\n")})

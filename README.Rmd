@@ -146,7 +146,7 @@ devtools::install_github("petermeissner/crossword.r")
 
 ```{r, message=FALSE}
 # load the library
-library(crossword)
+library(crossword.r)
 
 # set seed for pseudo random number generator
 set.seed(123)
