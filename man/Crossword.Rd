@@ -37,7 +37,7 @@ scalar.
 
 \examples{
 
-library(crossword)
+library(crossword.r)
 cw <- Crossword$new(rows = 4, columns = 4)
 cw$add_words(c("back", "nasa", "kick", "nuk", "ic", "sic"))
 cw
