@@ -1,26 +1,3 @@
-#' function that turn matrix into a data.frame in long format
-#'
-#' @param x the data.frame to transform
-#'
-#'
-cw_matrix_to_df <- function(x){
-  data.frame(
-    row = as.vector(row(x)),
-    col = as.vector(col(x)),
-    val = as.vector(x),
-    stringsAsFactors = FALSE
-  )
-}
-
-#' a vectorized version of grep
-#' @inheritParams base::grepl
-#'
-#'
-cw_greplv <-
-  compiler::cmpfun(
-    Vectorize(grepl, vectorize.args = "pattern")
-  )
-
 #' normalize words to be added to grid
 #'
 #' @param words character vector of words to normalize for crossword usage

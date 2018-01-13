@@ -16,7 +16,7 @@ Imports: R6 (>= 2.2.0),
     jsonlite (>= 1.5)
 RoxygenNote: 6.0.1
 Collate: 
-    'tools.R'
+    'cw_matrix_to_df.R'
     'Crossword.R'
     'cw_glue_clues.R'
     'cw_glue_head.R'
@@ -24,6 +24,8 @@ Collate:
     'cw_glue_puzzle.R'
     'cw_glue_solution.R'
     'cw_glue_table.R'
+    'cw_greplv.R'
+    'cw_normalize_words.R'
     'cw_r6_extended.R'
     'cw_to_json.R'
     'cw_to_pdf.R'
