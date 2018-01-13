@@ -19,6 +19,30 @@ test_that(
       cw$add_words(words = c("ha"))
     })
 
+    expect_true({
+      cw_normalize_words(paste(letters, collapse = "")) ==
+        cw_normalize_words(paste(LETTERS, collapse = ""))
+    })
+
+    expect_true({
+      cw_normalize_words("") == "##"
+    })
+
+    expect_true({
+      cw_normalize_words(c("öäüßÖÄÜ")) == "#OEAEUESSOEAEUE#"
+    })
+
+
+    expect_error({
+      cw <- Crossword$new(rows = 10, columns = 10)
+      cw$add_words()
+    })
+
+    expect_silent({
+      cw <- Crossword$new(rows = 2, columns = 2)
+      cw$add_words("a", "b")
+      cw$add_words(letters[1:10], LETTERS[1:10])
+    })
 
   }
 )
