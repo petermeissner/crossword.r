@@ -4,9 +4,9 @@ Generating Crosswords from Word Lists
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/crossword.r"> <img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword.r"> <img src="http://www.r-pkg.org/badges/version/crossword.r"> </a> <a href=""> <img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r"> </a> <a href=""> <img src="http://cranlogs.r-pkg.org/badges/crossword.r"> </a>
+<a href="https://travis-ci.org/petermeissner/crossword.r"> <img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword.r"> <img src="http://www.r-pkg.org/badges/version/crossword.r"> </a> <a href="https://codecov.io/gh/petermeissner/crossword.r/branch/master"> <img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg"> </a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com"> <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r"> </a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com"> <img src="http://cranlogs.r-pkg.org/badges/crossword.r"> </a>
 
-*lines of R code:* 397, *lines of test code:* 41
+*lines of R code:* 397, *lines of test code:* 50
 
 **Youtube video of Hamburg UseR Meetup presentation**
 
@@ -14,7 +14,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.3.4 - 2018-01-13 / 23:26:28
+0.3.4 - 2018-01-13 / 23:51:29
 
 **Description**
 
