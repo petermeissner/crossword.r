@@ -11,3 +11,4 @@ logo/
 presentation/
 rendering/
 ^codecov\.yml$
+^cran-comments\.md$
