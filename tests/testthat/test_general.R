@@ -46,7 +46,7 @@ test_that(
       cw <- Crossword$new(rows = 2, columns = 2)
       cw$add_words("a", "b")
       cw$add_words(letters[1:10], LETTERS[1:10])
-      cw$add_word("meineomafährtimhühnerstallmotorad")
+      cw$add_words("meineomafährtimhühnerstallmotorad")
     })
 
     expect_true({

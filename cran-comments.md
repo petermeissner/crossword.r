@@ -1,3 +1,10 @@
+## this is a re-submission
+
+- your complaints: "please improve your Rd-files""
+- --> done: fields and methods documented
+
+
+
 ## Test environments
 * local Ubuntu, 16.04, R 3.4.3
 * Ubuntu 14.04 (on travis-ci), R 3.4.3

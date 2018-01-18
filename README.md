@@ -14,7 +14,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.3.4 - 2018-01-13 / 23:51:29
+0.3.4 - 2018-01-18 / 21:12:57
 
 **Description**
 

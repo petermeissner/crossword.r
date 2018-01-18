@@ -176,6 +176,11 @@ cw$letters
 cw$words
 ```
 
+```{r}
+# get some statistics
+cw$density()
+```
+
 
 
 

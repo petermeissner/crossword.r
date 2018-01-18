@@ -2,7 +2,7 @@ Package: crossword.r
 Date: 2018-01-13
 Type: Package
 Title: Generating Crosswords from Word Lists
-Version: 0.3.4
+Version: 0.3.5
 Author: Peter Meissner
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: Generate crosswords from a list of words. 

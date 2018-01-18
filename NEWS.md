@@ -1,4 +1,9 @@
 
+# crossword 0.3.5 -- 2018-01-18
+
+* make package CRAN compliant via improving documentation
+
+
 # crossword 0.3.4 -- 2018-01-13
 
 * fix: coordinates were off by one
