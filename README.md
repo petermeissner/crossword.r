@@ -14,7 +14,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.3.4 - 2018-01-18 / 21:12:57
+0.3.5 - 2018-01-18 / 22:05:51
 
 **Description**
 
@@ -49,6 +49,19 @@ Latest development version from Github:
 ``` r
 devtools::install_github("petermeissner/crossword.r")
 ```
+
+**Help wanted**
+
+-   word-clue lists to accompany the package (like the one used throughout the examples below)
+-   grid placement algorithm improvements
+    -   make denser grids,
+    -   allow for space between non-overlapping words (<https://github.com/petermeissner/crossword.r/issues/8>),
+    -   allow for alternative algorithms,
+    -   make it faster,
+    -   make it auto-optimize
+-   make more exports
+    -   PDF (see <https://github.com/petermeissner/crossword.r/tree/master/rendering> for some first tests, also: <https://github.com/petermeissner/crossword.r/issues/7>)
+    -   HTML/JS (see <https://github.com/petermeissner/crossword.js>)
 
 Usage
 =====
@@ -130,3 +143,50 @@ cw$words
 ## 18     6     7      3 down      BAT      Flying mammal                                                       
 ## 19     8    10      3 down      DOG      A man's best friend.
 ```
+
+``` r
+# get some statistics
+cw$density()
+## $word_character
+## [1] 79
+## 
+## $grid_width
+## [1] 10
+## 
+## $grid_height
+## [1] 10
+## 
+## $grid_letters
+## [1] 73
+```
+
+``` r
+# export to JSON
+cw$to_json(pretty=TRUE)
+```
+
+    ## {
+    ##   "grid": [
+    ##     ["E", "E", "L", "", "", "", "B", "", "", "S"],
+    ##     ["T", "E", "R", "M", "I", "T", "E", "", "G", "K"],
+    ##     ["H", "A", "R", "E", "", "O", "E", "W", "I", "U"],
+    ##     ["O", "X", "", "", "G", "R", "", "O", "R", "N"],
+    ##     ["", "", "", "A", "N", "T", "", "M", "A", "K"],
+    ##     ["F", "L", "Y", "", "U", "O", "B", "B", "F", ""],
+    ##     ["", "F", "O", "X", "", "I", "A", "A", "F", ""],
+    ##     ["D", "U", "C", "K", "", "S", "T", "T", "E", "D"],
+    ##     ["", "S", "N", "A", "K", "E", "", "", "", "O"],
+    ##     ["C", "O", "D", "", "", "", "F", "R", "O", "G"]
+    ##   ],
+    ##   "words": [
+    ##     {
+    ##       "row": 10,
+    ##       "col": 1,
+    ##       "length": 3,
+    ##       "direction": "right",
+    ##       "word": "COD",
+    ##       "clue": "Popular food fish with a mild flavour and a dense, flaky, white flesh."
+    ##     },
+    ##  }
+    ## 
+    ## [...]

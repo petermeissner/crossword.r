@@ -140,6 +140,20 @@ devtools::install_github("petermeissner/crossword.r")
 
 
 
+**Help wanted**
+
+- word-clue lists to accompany the package (like the one used throughout the examples below)
+- grid placement algorithm improvements 
+    * make denser grids, 
+    * allow for space between non-overlapping words (https://github.com/petermeissner/crossword.r/issues/8), 
+    * allow for alternative algorithms, 
+    * make it faster, 
+    * make it auto-optimize
+- make more exports
+    * PDF (see https://github.com/petermeissner/crossword.r/tree/master/rendering for some first tests, also: https://github.com/petermeissner/crossword.r/issues/7)
+    * HTML/JS (see https://github.com/petermeissner/crossword.js)
+
+
 
 
 # Usage
@@ -179,6 +193,17 @@ cw$words
 ```{r}
 # get some statistics
 cw$density()
+```
+
+
+```{r, results=FALSE}
+# export to JSON
+cw$to_json(pretty=TRUE)
+```
+
+```{r, echo=FALSE}
+# export to JSON
+cat(paste(substring(cw$to_json(pretty=TRUE),1,765), "}\n\n[...]"))
 ```
 
 
