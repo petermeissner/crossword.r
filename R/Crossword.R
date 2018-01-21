@@ -92,7 +92,7 @@ Crossword <-
               dplyr::filter(
                 iffer
               ) %>%
-              dplyr::rename(length = nchar) %>%
+              dplyr::rename_("length" = "nchar") %>%
               dplyr::mutate(
                 direction = "down",
                 word      = word,
@@ -114,7 +114,7 @@ Crossword <-
               dplyr::filter(
                 iffer
               ) %>%
-              dplyr::rename(length = nchar) %>%
+              dplyr::rename_("length" = "nchar") %>%
               dplyr::mutate(
                 direction = "right",
                 word      = word,
