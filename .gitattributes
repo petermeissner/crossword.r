@@ -1,7 +1,7 @@
 * -crlf
 
-presentation linguist-documentation
-rendering linguist-documentation
+presentation/* linguist-documentation
+rendering/* linguist-documentation
 
 
 
