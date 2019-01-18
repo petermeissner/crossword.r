@@ -1,10 +1,18 @@
 
-Generating Crosswords from Word Lists
-=====================================
+# Generating Crosswords from Word Lists
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/crossword.r"> <img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=crossword.r"> <img src="http://www.r-pkg.org/badges/version/crossword.r"> </a> <a href="https://codecov.io/gh/petermeissner/crossword.r/branch/master"> <img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg"> </a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com"> <img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r"> </a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com"> <img src="http://cranlogs.r-pkg.org/badges/crossword.r"> </a>
+<a href="https://travis-ci.org/petermeissner/crossword.r">
+<img src="https://api.travis-ci.org/petermeissner/crossword.r.svg?branch=master">
+<a/> <a href="https://cran.r-project.org/package=crossword.r">
+<img src="http://www.r-pkg.org/badges/version/crossword.r"> </a>
+<a href="https://codecov.io/gh/petermeissner/crossword.r/branch/master">
+<img src="https://codecov.io/gh/petermeissner/crossword.r/branch/master/graph/badge.svg">
+</a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com">
+<img src="http://cranlogs.r-pkg.org/badges/grand-total/crossword.r">
+</a> <a href="https://r-pkg.org/maint/retep.meissner@gmail.com">
+<img src="http://cranlogs.r-pkg.org/badges/crossword.r"> </a>
 
 *lines of R code:* 397, *lines of test code:* 50
 
@@ -14,7 +22,7 @@ Generating Crosswords from Word Lists
 
 **Development version**
 
-0.3.5 - 2018-01-18 / 22:05:51
+0.3.6 - 2019-01-18 / 07:43:37
 
 **Description**
 
@@ -52,19 +60,23 @@ devtools::install_github("petermeissner/crossword.r")
 
 **Help wanted**
 
--   word-clue lists to accompany the package (like the one used throughout the examples below)
--   grid placement algorithm improvements
-    -   make denser grids,
-    -   allow for space between non-overlapping words (<https://github.com/petermeissner/crossword.r/issues/8>),
-    -   allow for alternative algorithms,
-    -   make it faster,
-    -   make it auto-optimize
--   make more exports
-    -   PDF (see <https://github.com/petermeissner/crossword.r/tree/master/rendering> for some first tests, also: <https://github.com/petermeissner/crossword.r/issues/7>)
-    -   HTML/JS (see <https://github.com/petermeissner/crossword.js>)
+  - word-clue lists to accompany the package (like the one used
+    throughout the examples below)
+  - grid placement algorithm improvements
+      - make denser grids,
+      - allow for space between non-overlapping words
+        (<https://github.com/petermeissner/crossword.r/issues/8>),
+      - allow for alternative algorithms,
+      - make it faster,
+      - make it auto-optimize
+  - make more exports
+      - PDF (see
+        <https://github.com/petermeissner/crossword.r/tree/master/rendering>
+        for some first tests, also:
+        <https://github.com/petermeissner/crossword.r/issues/7>)
+      - HTML/JS (see <https://github.com/petermeissner/crossword.js>)
 
-Usage
-=====
+# Usage
 
 ``` r
 # load the library
@@ -120,28 +132,46 @@ cw$letters
 
 # access to words placed on the grid, their co-ordinates and so on
 cw$words
-## # A tibble: 19 x 6
-##      row   col length direction word     clue                                                                
-##    <int> <int>  <int> <chr>     <chr>    <chr>                                                               
-##  1    10     1      3 right     COD      Popular food fish with a mild flavour and a dense, flaky, white fle…
-##  2     1    10      5 down      SKUNK    Animals known for its ability to spray strong unpleasant liquid     
-##  3     1     1      3 right     EEL      Elongated fish                                                      
-##  4     2     1      7 right     TERMITE  Living in colonies                                                  
-##  5     2     6      8 down      TORTOISE Armored reptile                                                     
-##  6     5     4      3 right     ANT      Small with mandibles and antenna                                    
-##  7     2     9      7 down      GIRAFFE  One of the big africans                                             
-##  8     9     2      5 right     SNAKE    Elongated, legless, carnivorous reptile                             
-##  9     4     5      3 down      GNU      Also a licence                                                      
-## 10     3     8      6 down      WOMBAT   Australian burrow digger                                            
-## 11     8     1      4 right     DUCK     Water bird                                                          
-## 12     3     1      4 right     HARE     Fast runner with long ears                                          
-## 13    10     7      4 right     FROG     Tailless amphibian                                                  
-## 14     1     7      3 down      BEE      Striped but no predator                                             
-## 15     4     1      2 right     OX       Castrated adult male cattle                                         
-## 16     6     1      3 right     FLY      Small insect                                                        
-## 17     7     2      3 right     FOX      Upright triangular ears, a pointed, slightly upturned snout, and a …
-## 18     6     7      3 down      BAT      Flying mammal                                                       
-## 19     8    10      3 down      DOG      A man's best friend.
+##    row col length direction     word
+## 1   10   1      3     right      COD
+## 2    1  10      5      down    SKUNK
+## 3    1   1      3     right      EEL
+## 4    2   1      7     right  TERMITE
+## 5    2   6      8      down TORTOISE
+## 6    5   4      3     right      ANT
+## 7    2   9      7      down  GIRAFFE
+## 8    9   2      5     right    SNAKE
+## 9    4   5      3      down      GNU
+## 10   3   8      6      down   WOMBAT
+## 11   8   1      4     right     DUCK
+## 12   3   1      4     right     HARE
+## 13  10   7      4     right     FROG
+## 14   1   7      3      down      BEE
+## 15   4   1      2     right       OX
+## 16   6   1      3     right      FLY
+## 17   7   2      3     right      FOX
+## 18   6   7      3      down      BAT
+## 19   8  10      3      down      DOG
+##                                                                                  clue
+## 1              Popular food fish with a mild flavour and a dense, flaky, white flesh.
+## 2                     Animals known for its ability to spray strong unpleasant liquid
+## 3                                                                      Elongated fish
+## 4                                                                  Living in colonies
+## 5                                                                     Armored reptile
+## 6                                                    Small with mandibles and antenna
+## 7                                                             One of the big africans
+## 8                                             Elongated, legless, carnivorous reptile
+## 9                                                                      Also a licence
+## 10                                                           Australian burrow digger
+## 11                                                                         Water bird
+## 12                                                         Fast runner with long ears
+## 13                                                                 Tailless amphibian
+## 14                                                            Striped but no predator
+## 15                                                        Castrated adult male cattle
+## 16                                                                       Small insect
+## 17 Upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail
+## 18                                                                      Flying mammal
+## 19                                                               A man's best friend.
 ```
 
 ``` r
