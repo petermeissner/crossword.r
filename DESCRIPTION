@@ -15,13 +15,6 @@ Imports: R6 (>= 2.2.0),
     magrittr (>= 1.5),
     jsonlite (>= 1.5),
     r6extended (>= 0.1.1)
-RoxygenNote: 6.1.1
-Collate:
-    'cw_matrix_to_df.R'
-    'Crossword.R'
-    'cw_greplv.R'
-    'cw_normalize_words.R'
-    'cw_to_json.R'
-    'cw_wordlist_animal_en.R'
+RoxygenNote: 6.0.1
 Suggests: covr,
     testthat

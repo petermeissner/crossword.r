@@ -32,7 +32,6 @@
 #'   the grid (row, col), their length in character, their direction ("right", "down")
 #'   the word and the clue
 #'
-#' @importFrom R6 R6Class
 #'
 #' @export
 #'
