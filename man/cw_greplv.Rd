@@ -4,8 +4,8 @@
 \alias{cw_greplv}
 \title{a vectorized version of grep}
 \usage{
-cw_greplv(pattern, x, ignore.case = FALSE, perl = FALSE, fixed = FALSE,
-  useBytes = FALSE)
+cw_greplv(pattern, x, ignore.case = FALSE, perl = FALSE,
+  fixed = FALSE, useBytes = FALSE)
 }
 \arguments{
 \item{pattern}{character string containing a \link{regular expression}
