@@ -1,13 +1,12 @@
-## this is a re-submission
+## This is a minor update
 
-- your complaints: "please improve your Rd-files""
-- --> done: fields and methods documented
+- Fix: The license file did not specify an author.
 
 
 
 ## Test environments
-* local Ubuntu, 16.04, R 3.4.3
-* Ubuntu 14.04 (on travis-ci), R 3.4.3
+* local Win10, R 3.5.2
+* Ubuntu 14.04 (on travis-ci), R 3.5.2
 * win-builder (devel and release)
 
 

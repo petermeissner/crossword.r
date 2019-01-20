@@ -1,4 +1,10 @@
 
+
+# crossword 0.3.6 -- 2019-01-20
+
+* copyright holder was missing
+
+
 # crossword 0.3.5 -- 2018-01-18
 
 * make package CRAN compliant via improving documentation
